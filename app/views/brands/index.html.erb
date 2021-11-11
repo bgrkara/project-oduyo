@@ -1,0 +1,26 @@
+
+<h1>Marka Listesi</h1>
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Marka Adı</th>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @brands.each do |brand| %>
+      <tr>
+        <td><%= brand.brand_name %></td>
+        <td class="table-a"><%= link_to 'Göster', brand %></td>
+        <td class="table-a"><%= link_to 'Düzenle', edit_brand_path(brand) %></td>
+        <td class="table-a"><%= link_to 'Sil', brand, method: :delete, data: { confirm: 'Emin misin?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Marka Ekle', new_brand_path , class:"btn btn-warning" %>
